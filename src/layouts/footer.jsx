@@ -1,84 +1,93 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaPinterestP } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaPinterestSquare, FaGooglePlus, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-100 py-12">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    {/* Get in Touch */}
+        <footer className="bg-[#f0f0f0] py-12 px-11">
+            <div className="flex flex-wrap pb-20">
+                <div className="w-full md:w-1/4 pt-8 px-4 mb-8 md:mb-0">
+                    <h4 className="text-sm font-medium pb-8">
+                        GET IN TOUCH
+                    </h4>
                     <div>
-                        <h3 className="text-sm font-bold uppercase mb-4">GET IN TOUCH</h3>
-                        <p className="text-sm text-gray-600 mb-2">
-                            Any questions? Let us know in store at 8th floor, 379 Hudson St,
-                            New York, NY 10018 or call us on (+1) 96 716 6879
+                        <p className="text-sm text-gray-600 w-4/5 mb-8">
+                            Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
                         </p>
-                        <div className="flex space-x-4 mt-4">
-                            <a href="#" className="text-gray-500 hover:text-red-600">
+                        <div className="flex mt-8">
+                            <a href="" className="text-lg text-gray-800 mr-5" title="fashe-theme on Facebook">
                                 <FaFacebookF />
                             </a>
-                            <a href="#" className="text-gray-500 hover:text-red-600">
+                            <a href="" className="text-lg text-gray-800 mr-5" title="fashe-theme on Twitter">
                                 <FaTwitter />
                             </a>
-                            <a href="#" className="text-gray-500 hover:text-red-600">
-                                <FaGoogle />
+                            <a href="" className="text-lg text-gray-800 mr-5" title="fashe-theme on Pinterest">
+                                <FaPinterestSquare />
                             </a>
-                            <a href="#" className="text-gray-500 hover:text-red-600">
+                            <a href="" className="text-lg text-gray-800 mr-5" title="fashe-theme on Google">
+                                <FaGooglePlus />
+                            </a>
+                            <a href="" className="text-lg text-gray-800 mr-5" title="fashe-theme on Instagram">
                                 <FaInstagram />
                             </a>
-                            <a href="#" className="text-gray-500 hover:text-red-600">
-                                <FaPinterestP />
-                            </a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 className="text-sm font-bold uppercase mb-4">CATEGORIES</h3>
-                        <ul className="">
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-black">Men</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-black">Women</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-black">Dresses</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-black">Sunglasses</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Links */}
-                    <div>
-                        <h3 className="text-sm font-bold uppercase mb-4">LINKS</h3>
-                        <ul className="">
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">Search</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">About Us</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">Contact Us</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">Returns</a></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="text-sm font-bold uppercase mb-4">HELP</h3>
-                        <ul className="">
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">Track Order</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">Returns</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">Shipping</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">FAQs </a></li>
-                        </ul>
-                    </div>
-                    <div className="md:col-span-4 lg:col-span-1">
-                        <h3 className="text-sm font-bold uppercase mb-4">NEWSLETTER</h3>
-                        <div className="flex">
-                            <input 
-                                type="email" 
-                                placeholder="Email Address" 
-                                className="flex-grow p-2 border-b-1 border-gray-300 focus:outline-none"
-                            />
-                            <button className="bg-black text-white px-4 py-2">
-                                SUBSCRIBE
-                            </button>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
-                    Copyright © 2023 MassTechnologist.com. All rights reserved.
+                <div className="w-full md:w-1/6 pt-8 px-4 mb-8 md:mb-0">
+                    <h4 className="text-sm font-medium pb-8">CATEGORIES</h4>
+                    <ul>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Men</a></li>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Women</a></li>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Dresses</a></li>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Sunglasses</a></li>
+                    </ul>
+                </div>
+                <div className="w-full md:w-1/6 pt-8 px-4 mb-8 md:mb-0">
+                    <h4 className="text-sm font-medium pb-8">LINKS</h4>
+                    <ul>
+                        <li className="pb-2"><a href="/search" className="text-sm text-gray-600 hover:text-red-500">Search</a></li>
+                        <li className="pb-2"><a href="/pages/about" className="text-sm text-gray-600 hover:text-red-500">About Us</a></li>
+                        <li className="pb-2"><a href="/pages/contact" className="text-sm text-gray-600 hover:text-red-500">Contact Us</a></li>
+                        <li className="pb-2"><a href="/pages/features" className="text-sm text-gray-600 hover:text-red-500">Returns</a></li>
+                    </ul>
+                </div>
+
+                <div className="w-full md:w-1/6 pt-8 px-4 mb-8 md:mb-0">
+                    <h4 className="text-sm font-medium pb-8">HELP</h4>
+                    <ul>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Track Order</a></li>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Returns</a></li>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">Shipping</a></li>
+                        <li className="pb-2"><a href="/" className="text-sm text-gray-600 hover:text-red-500">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div className="w-full md:w-1/4 pt-8 px-4">
+                    <h4 className="text-sm font-medium pb-8">NEWSLETTER</h4>
+                    <form action="/contact#contact_form" method="post" className="w-full">
+                        <input type="hidden" name="form_type" value="customer" />
+                        <input type="hidden" name="utf8" value="✓" />
+                        <input type="hidden" name="contact[tags]" value="newsletter" />
+                        <div className="relative w-full mb-6">
+                            <input 
+                                type="email"
+                                name="contact[email]"
+                                className="w-full pb-2 text-sm text-gray-600 bg-transparent border-b border-gray-300 focus:border-gray-900 focus:outline-none"
+                                placeholder="Email Address"
+                                required
+                            />
+                        </div>
+                        <button className="w-32 py-3 text-sm text-white bg-black rounded-full hover:bg-gray-900 transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            {/* COPYRIGHT */}
+            <div className="text-center">
+                <div className="text-sm text-gray-600 pt-5">
+                    Copyright © 2023 <a href="https://themeforest.net/user/masstechnologist/portfolio" className="hover:text-gray-900">MassTechnologist.com.</a> All rights reserved.
                 </div>
             </div>
         </footer>
