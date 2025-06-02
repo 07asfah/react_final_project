@@ -59,7 +59,7 @@ const Footer = () => {
                             <li><a href="#" className="text-sm text-gray-600 hover:text-red">Track Order</a></li>
                             <li><a href="#" className="text-sm text-gray-600 hover:text-red">Returns</a></li>
                             <li><a href="#" className="text-sm text-gray-600 hover:text-red">Shipping</a></li>
-                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">FAQs</a></li>
+                            <li><a href="#" className="text-sm text-gray-600 hover:text-red">FAQs </a></li>
                         </ul>
                     </div>
                     <div className="md:col-span-4 lg:col-span-1">
