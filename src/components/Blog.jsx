@@ -10,7 +10,7 @@ const Blog = () => {
                     backgroundImage: `url(${blogTopImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
-                }}
+                }} 
             >
                 <h2 className="text-4xl text-white font-medium text-center">
                     Blog
