@@ -5,6 +5,7 @@ import { FaSquarePinterest } from 'react-icons/fa6';
 import logo from '../assets/images/categories/logo.png'
 import { useCart } from '../components/cart';
 import { BsBag } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,7 +70,9 @@ const Navbar = () => {
                                 <li><a href="/pages/features" className="text-gray-700 hover:text-primary font-large">Features</a></li>
                                 <li><a href="/blogs/news" className="text-gray-700 hover:text-primary font-large">Blog</a></li>
                                 <li><a href="/pages/about" className="text-gray-700 hover:text-primary font-large">About</a></li>
-                                <li><a href="/pages/contact" className="text-gray-700 hover:text-primary font-large">Contact</a></li>
+                                <li>
+                                    <Link to="/contact" className="text-gray-700 hover:text-primary font-large">Contact</Link>
+                                </li>
                             </ul>
                         </nav>
                     </div>
