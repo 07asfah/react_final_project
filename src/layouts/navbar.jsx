@@ -69,7 +69,9 @@ const Navbar = () => {
                                 <li><a href="/search" className="text-gray-700 hover:text-primary font-large">Sale</a></li>
                                 <li><a href="/pages/features" className="text-gray-700 hover:text-primary font-large">Features</a></li>
                                 <li><a href="/blogs/news" className="text-gray-700 hover:text-primary font-large">Blog</a></li>
-                                <li><a href="/pages/about" className="text-gray-700 hover:text-primary font-large">About</a></li>
+                                <li>
+                                    <Link to="/about" className="text-gray-700 hover:text-primary font-large">About</Link>
+                                </li>
                                 <li>
                                     <Link to="/contact" className="text-gray-700 hover:text-primary font-large">Contact</Link>
                                 </li>
@@ -173,3 +175,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

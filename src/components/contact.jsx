@@ -1,4 +1,5 @@
 import React from 'react';
+import contactTopImage from '../assets/images/articles/about_top.jpg'; 
 
 const Contact = () => {
     return (
@@ -6,7 +7,7 @@ const Contact = () => {
             <section 
                 className="flex flex-col items-center justify-center py-20"
                 style={{
-                    backgroundImage: "url('//fashe-theme.myshopify.com/cdn/shop/t/6/assets/contact_top.jpg?v=24393269471667451341516034187')",
+                    backgroundImage: `url(${contactTopImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}
@@ -17,19 +18,20 @@ const Contact = () => {
             </section>
 
             <section className="bg-white py-16 px-4">
-                <div className="container mx-auto">
+                <div className="container mx-auto px-8 md:px-16 lg:px-24">
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0">
                             <div className="pr-0 lg:pr-8">
                                 <div className="w-full">
                                     <iframe 
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2950.6822073234102!2d-83.71685604946924!3d42.30664594636449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883cac2c20114b69%3A0x96fe590afa21efb6!2s2300+Traverwood+Dr%2C+Ann+Arbor%2C+MI+48105!5e0!3m2!1sen!2s!4v1461260551915"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3210.5590632821154!2d-7.5338517!3d33.6037882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cdb2f812837f%3A0xbbcfc74fbc11b2d9!2sLionsGeek!5e1!3m2!1sfr!2sma!4v1748899908724!5m2!1sfr!2sma" 
                                         width="100%" 
                                         height="400" 
                                         style={{ border: 0 }} 
                                         allowFullScreen=""
                                         loading="lazy"
-                                        title="location map"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="LionsGeek location map"
                                     ></iframe>
                                 </div>
                             </div>
