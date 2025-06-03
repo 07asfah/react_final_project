@@ -8,6 +8,8 @@ import CartComponent, { CartProvider } from './components/cart';
 import Contact from './components/contact';
 import Blog from './components/Blog';
 import Shop from './components/shop';
+import Login from './components/Login';
+import Register from './components/Register';
 
 const App = () => {
   return (
@@ -17,9 +19,13 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/tagged/:tag" element={<Blog />} />
         <Route path="/shop" element={<Shop/>} />
+        <Route path="/shop/:id" element={<Shop/>} />
         <Route path="/cart" element={<CartComponent/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </CartProvider>
@@ -27,4 +33,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
 

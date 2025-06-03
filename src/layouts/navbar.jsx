@@ -43,9 +43,9 @@ const Navbar = () => {
                             <div className="flex items-center space-x-6">
                                 <span className="text-gray-600">fashe@example.com</span>
                                 <div className="flex items-center space-x-4">
-                                    <a href="#" className="relative">
-                                        <CgProfile />
-                                    </a>
+                                    <Link to="/login" className="relative text-gray-600 hover:text-black">
+                                        <CgProfile className="w-5 h-5"/>
+                                    </Link>
                                     <div className="relative">
                                         <BsBag
                                             alt="Cart"
@@ -61,14 +61,18 @@ const Navbar = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* Update in desktop navigation */}
                         <nav className="hidden lg:block py-4">
                             <ul className="flex justify-center space-x-8">
                                 <li className="relative group">
-                                    <a href="/" className="text-gray-700 hover:text-primary font-large">Home</a> </li>
+                                    <a href="/" className="text-gray-700 hover:text-primary font-large">Home</a>
+                                </li>
                                 <li><a href="/collections/all" className="text-gray-700 hover:text-primary font-large">Shop</a></li>
                                 <li><a href="/search" className="text-gray-700 hover:text-primary font-large">Sale</a></li>
                                 <li><a href="/pages/features" className="text-gray-700 hover:text-primary font-large">Features</a></li>
-                                <li><a href="/blogs/news" className="text-gray-700 hover:text-primary font-large">Blog</a></li>
+                                <li>
+                                    <Link to="/blog" className="text-gray-700 hover:text-primary font-large">Blog</Link>
+                                </li>
                                 <li>
                                     <Link to="/about" className="text-gray-700 hover:text-primary font-large">About</Link>
                                 </li>
@@ -87,9 +91,9 @@ const Navbar = () => {
                         </a>
 
                         <div className="flex items-center space-x-4">
-                            <a href="#" className="relative">
-                                <img src="/cdn/shop/t/6/assets/icon-header-01.png" alt="User" className="w-5 h-5" />
-                            </a>
+                            <Link to="/login" className="relative">
+                                <CgProfile className="w-5 h-5" />
+                            </Link>
                             <div className="relative">
                                 <img
                                     src="/cdn/shop/t/6/assets/icon-header-02.png"
@@ -133,24 +137,25 @@ const Navbar = () => {
 
                                     <div className="border-b pb-4">
                                         <div className="flex space-x-4">
-                                            <a href="https://facebook.com/shopify" className="text-gray-500 hover:text-primary">
+                                            <a href="" className="text-gray-500 hover:text-primary">
                                                 <FaFacebookF className="w-4 h-4" />
                                             </a>
-                                            <a href="https://twitter.com/shopify" className="text-gray-500 hover:text-primary">
+                                            <a href="" className="text-gray-500 hover:text-primary">
                                                 <FaTwitter className="w-4 h-4" />
                                             </a>
-                                            <a href="https://pinterest.com/shopify" className="text-gray-500 hover:text-primary">
+                                            <a href="" className="text-gray-500 hover:text-primary">
                                                 <FaPinterestSquare className="w-4 h-4" />
                                             </a>
-                                            <a href="https://plus.google.com/+shopify" className="text-gray-500 hover:text-primary">
+                                            <a href="" className="text-gray-500 hover:text-primary">
                                                 <FaGooglePlus className="w-4 h-4" />
                                             </a>
-                                            <a href="https://instagram.com/shopify" className="text-gray-500 hover:text-primary">
+                                            <a href="" className="text-gray-500 hover:text-primary">
                                                 <FaInstagram className="w-4 h-4" />
                                             </a>
                                         </div>
                                     </div>
 
+                                    {/* Update in mobile navigation */}
                                     <nav className="flex flex-col space-y-4">
                                         <div className="flex justify-between items-center">
                                             <a href="/" className="text-gray-700">Home</a>
@@ -159,9 +164,9 @@ const Navbar = () => {
                                         <a href="/collections/all" className="text-gray-700">Shop</a>
                                         <a href="/search" className="text-gray-700">Sale</a>
                                         <a href="/pages/features" className="text-gray-700">Features</a>
-                                        <a href="/blogs/news" className="text-gray-700">Blog</a>
-                                        <a href="/pages/about" className="text-gray-700">About</a>
-                                        <a href="/pages/contact" className="text-gray-700">Contact</a>
+                                        <Link to="/blog" className="text-gray-700">Blog</Link>
+                                        <Link to="/about" className="text-gray-700">About</Link>
+                                        <Link to="/contact" className="text-gray-700">Contact</Link>
                                     </nav>
                                 </div>
                             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import contactTopImage from '../assets/images/articles/about_top.jpg'; 
+import contactTopImage from '../assets/images/articles/article1.jpg';
 
 const Contact = () => {
     return (
@@ -7,12 +7,14 @@ const Contact = () => {
             <section 
                 className="flex flex-col items-center justify-center py-20"
                 style={{
-                    backgroundImage: `url(${contactTopImage})`,
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${contactTopImage})`,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center'
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    height: '400px'
                 }}
             >
-                <h2 className="text-4xl text-white font-medium text-center">
+                <h2 className="text-5xl text-white font-medium text-center drop-shadow-lg">
                     Contact
                 </h2>
             </section>
