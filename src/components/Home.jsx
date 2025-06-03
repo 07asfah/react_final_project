@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -7,26 +7,38 @@ import image1 from '../assets/images/categories/Blog-09.jpg?url';
 import image2 from '../assets/images/categories/Blog-08.jpg?url';
 import image3 from '../assets/images/categories/Blog-10.jpg?url';
 
+import product1 from '../assets/images/categories/Blog-05.jpg?url';
+import product2 from '../assets/images/categories/Blog-09.jpg?url';
+import product3 from '../assets/images/categories/Blog-11.jpg?url';
+import product4 from '../assets/images/categories/Blog-12.jpg?url';
+import product5 from '../assets/images/categories/Blog-13.jpg?url';
+import product6 from '../assets/images/categories/Blog-14.jpg?url';
+import product7 from '../assets/images/categories/Blog-15.jpg?url';
+import product8 from '../assets/images/categories/Blog-16.jpg?url';
+
+import videoSource from '../assets/videos/redvideo.mp4';
+
 const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [imagesLoaded, setImagesLoaded] = useState(false);
-    
+    const videoRef = useRef(null);
+
     const carouselImages = [
-        { 
+        {
             url: '/src/assets/images/products/calvin.jpg',
             alt: 'Leather Collection',
             title: 'Leather Bags',
             description: 'New Collection 2024',
             buttonText: 'Shop Now'
         },
-        { 
+        {
             url: '/src/assets/images/products/download.jpg',
             alt: 'Fashion Collection',
             title: 'Spring Collection',
             description: 'New Arrivals',
             buttonText: 'Shop Now'
         },
-        { 
+        {
             url: '/src/assets/images/products/shoot.jpg',
             alt: 'Fashion Collection',
             title: 'Spring Collection',
@@ -52,26 +64,26 @@ const Home = () => {
                 console.error('Error loading images:', error);
             }
         };
-        
+
         loadImages();
 
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => 
+            setCurrentIndex((prevIndex) =>
                 prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
             );
         }, 5000);
-        
+
         return () => clearInterval(interval);
     }, []);
 
     const goToNext = () => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
             prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
         );
     };
 
     const goToPrevious = () => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
             prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
         );
     };
@@ -90,11 +102,10 @@ const Home = () => {
                 <div className="wrap-slick1 relative w-full">
                     <div className="slick1 h-[570px] relative overflow-hidden">
                         {carouselImages.map((image, index) => (
-                            <div 
+                            <div
                                 key={index}
-                                className={`item-slick1 absolute w-full h-full transition-all duration-500 ${
-                                    index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                                }`}
+                                className={`item-slick1 absolute w-full h-full transition-all duration-500 ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                                    }`}
                                 style={{
                                     backgroundImage: `url(${image.url})`,
                                     backgroundSize: 'cover',
@@ -102,21 +113,18 @@ const Home = () => {
                                 }}
                             >
                                 <div className="wrap-content-slide1 flex flex-col items-center justify-center h-full text-center px-4">
-                                    <h2 className={`caption1-slide1 text-4xl md:text-6xl font-bold mb-6 text-white transform ${
-                                        index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                                    } transition-all duration-700 delay-300`}>
+                                    <h2 className={`caption1-slide1 text-4xl md:text-6xl font-bold mb-6 text-white transform ${index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                        } transition-all duration-700 delay-300`}>
                                         {image.title}
                                     </h2>
-                                    
-                                    <span className={`caption2-slide1 text-xl md:text-2xl text-white mb-8 transform ${
-                                        index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                                    } transition-all duration-700 delay-500`}>
+
+                                    <span className={`caption2-slide1 text-xl md:text-2xl text-white mb-8 transform ${index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                        } transition-all duration-700 delay-500`}>
                                         {image.description}
                                     </span>
-                                    
-                                    <div className={`wrap-btn-slide1 transform ${
-                                        index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                                    } transition-all duration-700 delay-700`}>
+
+                                    <div className={`wrap-btn-slide1 transform ${index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                        } transition-all duration-700 delay-700`}>
                                         <button className="bg-white text-black px-8 py-3 rounded-full hover:bg-opacity-90 transition-all">
                                             {image.buttonText}
                                         </button>
@@ -125,8 +133,8 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    
-                    <button 
+
+                    <button
                         onClick={goToPrevious}
                         className="arrow-slick1 prev-slick1 absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black bg-opacity-50 p-4 rounded-full hover:bg-opacity-75 transition-all text-white"
                         aria-label="Previous slide"
@@ -134,24 +142,23 @@ const Home = () => {
                         <FaAngleLeft className="w-6 h-6" />
                     </button>
 
-                    <button 
+                    <button
                         onClick={goToNext}
                         className="arrow-slick1 next-slick1 absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black bg-opacity-50 p-4 rounded-full hover:bg-opacity-75 transition-all text-white"
                         aria-label="Next slide"
                     >
                         <FaAngleRight className="w-6 h-6" />
                     </button>
-                    
+
                     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
                         {carouselImages.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
-                                className={`w-3 h-3 rounded-full transition-all ${
-                                    index === currentIndex 
-                                        ? 'bg-white scale-125' 
-                                        : 'bg-white bg-opacity-50 hover:bg-opacity-75'
-                                }`}
+                                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
+                                    ? 'bg-white scale-125'
+                                    : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                                    }`}
                                 aria-label={`Go to slide ${index + 1}`}
                             />
                         ))}
@@ -167,14 +174,14 @@ const Home = () => {
                         <div className="col-span-1">
                             <div className="block1 group cursor-pointer relative">
                                 <div className="block1-img overflow-hidden relative">
-                                    <img 
+                                    <img
                                         src={image1}
-                                        alt="Sunglasses" 
+                                        alt="Sunglasses"
                                         className="w-full h-[450px] object-contain transition-transform duration-300 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <Link 
-                                            to="/collections/sunglasses" 
+                                        <Link
+                                            to="/collections/sunglasses"
                                             className="block text-center bg-white text-black py-3 px-6 font-medium mx-auto max-w-[150px] hover:bg-opacity-90 transition-all border-2 border-gray-200 shadow-md"
                                         >
                                             Sunglasses
@@ -188,14 +195,14 @@ const Home = () => {
                         <div className="col-span-1">
                             <div className="block1 relative group cursor-pointer ">
                                 <div className="block1-img overflow-hidden relative">
-                                    <img 
+                                    <img
                                         src={image2}
-                                        alt="Watches" 
+                                        alt="Watches"
                                         className="w-full h-[450px] object-contain transition-transform duration-300 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <Link 
-                                            to="/collections/watches" 
+                                        <Link
+                                            to="/collections/watches"
                                             className="block text-center bg-white text-black py-3 px-6 font-medium mx-auto max-w-[150px] hover:bg-opacity-90 transition-all border-2 border-gray-200 shadow-md"
                                         >
                                             Watches
@@ -209,14 +216,14 @@ const Home = () => {
                         <div className="col-span-1">
                             <div className="block1 relative group cursor-pointer">
                                 <div className="block1-img overflow-hidden relative">
-                                    <img 
+                                    <img
                                         src={image3}
-                                        alt="Bags" 
+                                        alt="Bags"
                                         className="w-full h-[450px] object-contain transition-transform duration-300 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <Link 
-                                            to="/collections/bags" 
+                                        <Link
+                                            to="/collections/bags"
                                             className="block text-center bg-white text-black py-3 px-6 font-medium mx-auto max-w-[150px] hover:bg-opacity-90 transition-all border-2 border-gray-200 shadow-md"
                                         >
                                             Bags
@@ -228,6 +235,249 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Products Section */}
+            <section className="bgwhite py-12">
+                <div className="container mx-auto px-4">
+                    {/* Section Title */}
+                    <div className="text-center mb-10">
+                        <h3 className="text-3xl font-medium">OUR PRODUCTS</h3>
+                    </div>
+
+                    {/* Tab Navigation */}
+                    <div className="flex justify-center mb-8">
+                        <ul className="flex space-x-8" role="tablist">
+                            <li>
+                                <button
+                                    className="text-lg hover:text-gray-600 border-b-2 border-transparent hover:border-black transition-all"
+                                    role="tab"
+                                >
+                                    Best Seller
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    className="text-lg hover:text-gray-600 border-b-2 border-transparent hover:border-black transition-all"
+                                    role="tab"
+                                >
+                                    Featured
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    className="text-lg hover:text-gray-600 border-b-2 border-transparent hover:border-black transition-all"
+                                    role="tab"
+                                >
+                                    New Arrivals
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Products Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {/* Product Card */}
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product1}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy T-Shirt
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product2}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product3}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product7}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product8}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product6}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product5}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+                        <div className="group relative">
+                            <div className="relative overflow-hidden">
+                                <img
+                                    src={product4}
+                                    alt="Product"
+                                    className="w-full h-[400px] object-contain"
+                                />
+                                <div className=" inset-0 bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300">
+                                    <div className=" bottom-4 left-0 right-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                        <button className="mx-auto block bg-white text-black px-6 py-2 rounded-full hover:bg-opacity-90">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-4 text-center">
+                                <a href="#" className="block text-lg mb-2 hover:text-gray-600">
+                                    Boxy7 T-Shirt with Roll Sleeve
+                                </a>
+                                <span className="text-gray-900 font-medium">$20.00</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            {/* Video Lookbook Section */}
+            <section className="relative h-screen w-full overflow-hidden">
+                <div className="absolute inset-0 bg-black/40 z-10" />
+                <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="text-center text-white">
+                        <h2 className="text-5xl font-bold mb-4">The Beauty</h2>
+                        <h3 className="text-6xl font-bold mb-8">LOOKBOOK</h3>
+                    </div>
+                </div>
+                <video
+                    ref={videoRef}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    src={videoSource}
+                    muted
+                    loop
+                    autoPlay
+                    preload="auto"
+                    playsInline
+                />
+            </section>
         </>
     );
 };
