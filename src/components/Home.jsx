@@ -478,6 +478,109 @@ const Home = () => {
                     playsInline
                 />
             </section>
+
+            {/* Blog Section */}
+            <section className="py-16">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-4xl font-bold text-center mb-12">OUR BLOG</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Blog Post 1 */}
+                        <div className="group">
+                            <a href="#" className="block mb-4 overflow-hidden">
+                                <img
+                                    src={product1}
+                                    alt="Black Friday Guide"
+                                    className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </a>
+                            <h3 className="text-xl font-semibold mb-2">
+                                <a href="#" className="hover:text-gray-600">Black Friday Guide: Best Sales & Discount Codes</a>
+                            </h3>
+                            <div className="text-sm text-gray-500 mb-3">
+                                by <a href="#" className="text-black">fashe-theme Admin</a> on Dec 28,2017
+                            </div>
+                            <p className="text-gray-600">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed turpis sed lorem dignissim vulputate nec cursus ante. Nunc sit...
+                            </p>
+                        </div>
+
+                        {/* Blog Post 2 */}
+                        <div className="group">
+                            <a href="#" className="block mb-4 overflow-hidden">
+                                <img
+                                    src={product2}
+                                    alt="White Sneakers"
+                                    className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </a>
+                            <h3 className="text-xl font-semibold mb-2">
+                                <a href="#" className="hover:text-gray-600">The White Sneakers Nearly Every Fashion Girls Own</a>
+                            </h3>
+                            <div className="text-sm text-gray-500 mb-3">
+                                by <a href="#" className="text-black">fashe-theme Admin</a> on Dec 28,2017
+                            </div>
+                            <p className="text-gray-600">
+                                Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque mattis augue id euismod. Inter-dum et...
+                            </p>
+                        </div>
+
+                        {/* Blog Post 3 */}
+                        <div className="group">
+                            <a href="#" className="block mb-4 overflow-hidden">
+                                <img
+                                    src={product3}
+                                    alt="New York Street Style"
+                                    className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </a>
+                            <h3 className="text-xl font-semibold mb-2">
+                                <a href="#" className="hover:text-gray-600">New York SS 2018 Street Style: By Annina Mislin</a>
+                            </h3>
+                            <div className="text-sm text-gray-500 mb-3">
+                                by <a href="#" className="text-black">fashe-theme Admin</a> on Dec 28,2017
+                            </div>
+                            <p className="text-gray-600">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed turpis sed lorem dignissim vulputate nec cursus ante. Nunc sit...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Instagram Follow Section */}
+            <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-4xl font-bold text-center mb-12">@ FOLLOW US ON INSTAGRAM</h2>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    </div>
+                </div>
+            </section>
+
+            {/* Features Section */}
+            <section className=" py-16">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        {/* Feature 1 */}
+                        <div className='border-r border-gray-200'>
+                            <h3 className="text-xl font-medium mb-2">Free Delivery Worldwide</h3>
+                            <p className="text-gray-600">Mirum est notare quam littera gothica</p>
+                        </div>
+
+                        {/* Feature 2 */}
+                        <div className='border-r border-gray-200'>
+                            <h3 className="text-xl font-medium mb-2">30 Days Return</h3>
+                            <p className="text-gray-600">Simply return it within 30 days for an exchange</p>
+                        </div>
+
+                        {/* Feature 3 */}
+                        <div>
+                            <h3 className="text-xl font-medium mb-2">Store Opening</h3>
+                            <p className="text-gray-600">Shop open from Monday to Sunday</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     );
 };
