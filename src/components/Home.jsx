@@ -186,7 +186,7 @@ const Home = () => {
 
                         {/* Watches Category */}
                         <div className="col-span-1">
-                            <div className="block1 relative group cursor-pointer">
+                            <div className="block1 relative group cursor-pointer ">
                                 <div className="block1-img overflow-hidden relative">
                                     <img 
                                         src={image2}
