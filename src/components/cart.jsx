@@ -1,75 +1,125 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const Cart = createContext();
+const CartContext = createContext();
 
-export function CartProvider({ children }) {
+export const CartProvider = ({ children }) => {
+    const [cart, setCart] = useState([]);
     const [isCartOpen, setIsCartOpen] = useState(false);
-    const [cartItems, setCartItems] = useState([]);
+
+    const addToCart = (product) => {
+        setCart(prevCart => {
+            const existingProduct = prevCart.find(item => item.id === product.id);
+            if (existingProduct) {
+                return prevCart.map(item =>
+                    item.id === product.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
+            }
+            return [...prevCart, { ...product, quantity: 1 }];
+        });
+    };
 
     const getTotalItems = () => {
-        return cartItems.length;
+        return cart.reduce((total, item) => total + item.quantity, 0);
     };
 
-    const getTotalPrice = () => {
-        return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
+    const getSubtotal = () => {
+        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
     };
 
     return (
-        <Cart.Provider value={{ isCartOpen, setIsCartOpen, cartItems, setCartItems, getTotalItems, getTotalPrice }}>
+        <CartContext.Provider value={{
+            cart,
+            addToCart,
+            getTotalItems,
+            isCartOpen,
+            setIsCartOpen,
+            getSubtotal
+        }}>
             {children}
-        </Cart.Provider>
-    );
-}
-
-export function useCart() {
-    return useContext(Cart);
-}
-
-const CartComponent = () => {
-    const { cartItems, getTotalPrice } = useCart();
-
-    return (
-        <div className="container mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6">Shopping Cart</h2>
-            
-            {cartItems.length === 0 ? (
-                <div className="text-center py-8">
-                    <p className="text-gray-600">Your cart is empty</p>
-                </div>
-            ) : (
-                <div>
-                    <div className="space-y-4">
-                        {cartItems.map((item) => (
-                            <div key={item.id} className="flex items-center justify-between border-b pb-4">
-                                <div className="flex items-center space-x-4">
-                                    <img src={item.image} alt={item.name} className="w-20 h-20 object-cover" />
-                                    <div>
-                                        <h3 className="font-medium">{item.name}</h3>
-                                        <p className="text-gray-600">${item.price}</p>
-                                    </div>
-                                </div>
-                                <button
-                                    className="text-red-500 hover:text-red-700"
-                                    onClick={() => {/* Add remove functionality */}}
-                                >
-                                    Remove
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                    
-                    <div className="mt-8 flex justify-between items-center">
-                        <div className="text-lg font-medium">
-                            Total: ${getTotalPrice()}
-                        </div>
-                        <button className="bg-black text-white px-6 py-2 hover:bg-gray-800">
-                            Checkout
+            <div className={`fixed inset-0 transition-opacity duration-300 ${isCartOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+                <div
+                    className={`fixed inset-0 bg-black transition-opacity duration-300 ${isCartOpen ? 'opacity-30' : 'opacity-0'
+                        }`}
+                    onClick={() => setIsCartOpen(false)}
+                ></div>
+                <div className={`fixed right-0 top-0 h-full w-96 bg-white shadow-lg p-6 overflow-y-auto transform transition-transform duration-300 ease-in-out ${isCartOpen ? 'translate-x-0' : 'translate-x-full'
+                    }`}>
+                    <div className="flex justify-between items-center mb-6">
+                        <h2 className="text-2xl font-bold">Cart</h2>
+                        <button
+                            onClick={() => setIsCartOpen(false)}
+                            className="text-gray-500 hover:text-black text-2xl"
+                        >
+                            ×
                         </button>
                     </div>
+
+                    {cart.length === 0 ? (
+                        <p className="text-center text-gray-500">Your cart is empty</p>
+                    ) : (
+                        <>
+                            <div className="space-y-4 mb-6">
+                                {cart.map((item) => (
+                                    <div key={item.id} className="flex items-center gap-4 border-b pb-4">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-20 h-20 object-cover"
+                                        />
+                                        <div className="flex-1">
+                                            <h3 className="text-sm font-medium">{item.title}</h3>
+                                            <p className="text-gray-600 text-sm">
+                                                {item.quantity} × ${item.price.toFixed(2)}
+                                            </p>
+                                        </div>
+                                        <button
+                                            className="text-gray-400 hover:text-black text-xl"
+                                            onClick={() => {
+                                                setCart(cart.filter(i => i.id !== item.id))
+                                            }}
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="border-t pt-4">
+                                <div className="flex justify-between mb-4">
+                                    <span className="font-medium">Subtotal:</span>
+                                    <span className="font-bold">${getSubtotal().toFixed(2)}</span>
+                                </div>
+                                <div className="space-y-3">
+                                    <button
+                                        className="w-full bg-black text-white py-3 px-4 hover:bg-gray-800 transition-colors"
+                                        onClick={() => { }}
+                                    >
+                                        CHECKOUT
+                                    </button>
+                                    <button
+                                        className="w-full border border-black py-3 px-4 hover:bg-gray-100 transition-colors"
+                                        onClick={() => setIsCartOpen(false)}
+                                    >
+                                        VIEW CART
+                                    </button>
+                                </div>
+                            </div>
+                        </>
+                    )}
                 </div>
-            )}
-        </div>
+            </div>
+        </CartContext.Provider>
     );
 };
 
-export default CartComponent;
+export const useCart = () => {
+    const context = useContext(CartContext);
+    if (!context) {
+        throw new Error('useCart must be used within a CartProvider');
+    }
+    return context;
+};
+
+export default CartProvider;
