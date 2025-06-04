@@ -5,9 +5,27 @@ import blog01 from '../assets/images/categories/Instagram.jpg';
 import blog02 from '../assets/images/categories/blog-05.jpg';
 import blog03 from '../assets/images/categories/blog-06.jpg';
 import blog04 from '../assets/images/categories/blog-07.jpg';
+import aboutTopImage from '../assets/images/articles/article2.jpg';
 
 const Blog = () => {
     return (
+        <>
+
+        <section 
+                className="flex flex-col items-center justify-center py-20"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${aboutTopImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    height: '400px'
+                }}
+            >
+                <h2 className="text-5xl text-white font-medium text-center drop-shadow-lg">
+                    About
+                </h2>
+            </section>
+
         <section className="bg-white pt-16">
             <div className="container mx-auto">
                 <div className="flex flex-wrap justify-center">
@@ -73,6 +91,7 @@ const Blog = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 

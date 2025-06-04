@@ -9,6 +9,8 @@ import shop6 from '../assets/images/shop/shop6.jpg';
 import shop7 from '../assets/images/shop/shop7.jpg';
 import shop8 from '../assets/images/shop/shop8.jpg';
 
+import aboutTopImage from '../assets/images/articles/article2.jpg';
+
 const Shop = () => {
     const { addToCart } = useCart();
 
@@ -74,6 +76,22 @@ const Shop = () => {
     };
 
     return (
+
+        <>
+        <section 
+                className="flex flex-col items-center justify-center py-20"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${aboutTopImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    height: '400px'
+                }}
+            >
+                <h2 className="text-5xl text-white font-medium text-center drop-shadow-lg">
+                    About
+                </h2>
+            </section>
         <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/4">
@@ -150,7 +168,7 @@ const Shop = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 };
-
 export default Shop;

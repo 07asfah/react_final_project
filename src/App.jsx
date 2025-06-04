@@ -10,11 +10,12 @@ import Blog from './components/Blog';
 import Login from './components/Login';
 import Register from './components/Register';
 import Shop from './components/shop';
+import CartPage from './components/CartPage';
 
 const App = () => {
   return (
-    <CartProvider>
-      <Router>
+    <Router>
+      <CartProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,10 +27,11 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/cart-page" element={<CartPage />} />
         </Routes>
         <Footer />
-      </Router>
-    </CartProvider>
+      </CartProvider>
+    </Router>
   );
 };
 
