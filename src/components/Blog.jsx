@@ -22,7 +22,7 @@ const Blog = () => {
                 }}
             >
                 <h2 className="text-5xl text-white font-medium text-center drop-shadow-lg">
-                    About
+                    Blog
                 </h2>
             </section>
 

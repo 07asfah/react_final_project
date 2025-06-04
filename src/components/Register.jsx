@@ -20,13 +20,11 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Add registration logic here
         console.log('Form submitted:', formData);
     };
 
     return (
         <div className="container mx-auto px-4 py-8 max-w-3xl">
-            {/* Breadcrumb */}
             <div className="flex items-center text-sm mb-8">
                 <Link to="/" className="text-gray-600 hover:text-gray-800">
                     Home
