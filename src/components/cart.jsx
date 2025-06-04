@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CartContext = createContext();
 
-// Separate CartPanel into its own component
+
 const CartPanelContent = ({ cart, setCart, isCartOpen, setIsCartOpen, getSubtotal }) => {
     const navigate = useNavigate();
 
@@ -85,7 +85,6 @@ const CartPanelContent = ({ cart, setCart, isCartOpen, setIsCartOpen, getSubtota
     );
 };
 
-// Wrapper component that consumes context
 const CartPanel = () => {
     const { cart, setCart, isCartOpen, setIsCartOpen, getSubtotal } = useCart();
 

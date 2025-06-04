@@ -200,7 +200,6 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/* Watches Category */}
                             <div className="col-span-1">
                                 <div className="block1 relative group cursor-pointer ">
                                     <div className="block1-img overflow-hidden relative">
@@ -221,7 +220,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            {/* Bags Category */}
+
                             <div className="col-span-1">
                                 <div className="block1 relative group cursor-pointer">
                                     <div className="block1-img overflow-hidden relative">
@@ -245,15 +244,15 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* Products Section */}
+
                 <section className="bgwhite py-12">
                     <div className="container mx-auto px-4">
-                        {/* Section Title */}
+
                         <div className="text-center mb-10">
                             <h3 className="text-3xl font-medium">OUR PRODUCTS</h3>
                         </div>
 
-                        {/* Tab Navigation */}
+
                         <div className="flex justify-center mb-8">
                             <ul className="flex space-x-8" role="tablist">
                                 <li>
@@ -283,9 +282,7 @@ const Home = () => {
                             </ul>
                         </div>
 
-                        {/* Products Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                            {/* Product Card */}
                             <div className="group relative">
                                 <div className="relative overflow-hidden">
                                     <img
@@ -563,19 +560,17 @@ const Home = () => {
                 <section className=" py-16">
                     <div className="container mx-auto px-4">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                            {/* Feature 1 */}
+
                             <div className='border-r border-gray-200'>
                                 <h3 className="text-xl text-gray-200 font-medium mb-2">Free Delivery Worldwide</h3>
                                 <p className="text-gray-50">Mirum est notare quam littera gothica</p>
                             </div>
 
-                            {/* Feature 2 */}
+
                             <div className='border-r border-gray-200'>
                                 <h3 className="text-xl font-medium text-gray-200 mb-2">30 Days Return</h3>
                                 <p className="text-gray-50">Simply return it within 30 days for an exchange</p>
                             </div>
-
-                            {/* Feature 3 */}
                             <div>
                                 <h3 className="text-xl font-medium  text-gray-200 mb-2">Store Opening</h3>
                                 <p className="text-gray-50">Shop open from Monday to Sunday</p>

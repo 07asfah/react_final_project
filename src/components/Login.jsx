@@ -9,17 +9,14 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Add login logic here
     };
 
     const handleRecoverPassword = (e) => {
         e.preventDefault();
-        // Add password recovery logic here
     };
 
     return (
         <>
-            {/* Breadcrumb */}
             <div className="bg-gray-100 py-4 px-6 md:px-12">
                 <div className="flex items-center text-sm">
                     <Link to="/" className="text-gray-600 hover:text-gray-800">
@@ -32,7 +29,6 @@ const Login = () => {
 
             <div className="container mx-auto px-4 py-12">
                 <div className="grid md:grid-cols-2 gap-8">
-                    {/* New Customer Section */}
                     <div className="bg-white p-8 rounded-lg shadow-sm">
                         <h2 className="text-2xl font-medium mb-6">New Customer</h2>
                         <div className="mb-6">
@@ -49,12 +45,10 @@ const Login = () => {
                         </div>
                     </div>
 
-                    {/* Returning Customer Section */}
                     <div className="bg-white p-8 rounded-lg shadow-sm">
                         <h2 className="text-2xl font-medium mb-6">Returning Customer</h2>
                         
                         {!showRecoverPassword ? (
-                            // Login Form
                             <form onSubmit={handleLogin}>
                                 <div className="mb-4">
                                     <label htmlFor="email" className="block text-gray-700 mb-2">
@@ -107,7 +101,6 @@ const Login = () => {
                                 </div>
                             </form>
                         ) : (
-                            // Password Recovery Form
                             <form onSubmit={handleRecoverPassword}>
                                 <h3 className="text-xl font-medium mb-4">Reset your password</h3>
                                 <p className="text-gray-600 mb-6">
@@ -152,4 +145,4 @@ const Login = () => {
     );
 };
 
-export default Login; 
+export default Login;
